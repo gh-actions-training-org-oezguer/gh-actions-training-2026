@@ -6,8 +6,16 @@ on:
     branches:
       - main
       - feat/*
+  pull_request:
+      branches:
+        - main
+  issues:
+    types:
+      - opened
+      - closed
   # Schedule events
   # Manual events
+  
 
 jobs:
   Greeting:
