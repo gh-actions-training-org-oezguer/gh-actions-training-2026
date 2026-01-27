@@ -1,0 +1,22 @@
+name: Demo composite action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Demo_calling_composite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkou@v4
+
+      - name: Call composite action
+        id: step1
+        uses: ./.github/actions/demo-composite-actions
+        with:
+          greeting: Good night
+          name: Oezguer
+
+      - name: Print output from last step
+        run: echo "${{steps.step1.outputs.full-greeting}}"
+        
+      
