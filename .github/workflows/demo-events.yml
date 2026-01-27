@@ -46,7 +46,10 @@ jobs:
       GREETING: Good morning
     steps:
       - name: "Greeting step (expectation: Hello Oezguer)"
-        run: echo $GREETING $MY_NAME
+        run: |
+          echo $GREETING $MY_NAME
+          echo ${{env.GREETING}} ${{env.MY_NAME}}
+        if: ${{env.MY_NAME == 'Oezguer'}}
   Greeting2:
     runs-on: ubuntu-latest
     env:
