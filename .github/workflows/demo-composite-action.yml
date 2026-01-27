@@ -11,7 +11,7 @@ jobs:
 
       - name: Call composite action
         id: step1
-        uses: ./.github/actions/demo-composite-actions
+        uses: ./.github/actions/demo-composite-action
         with:
           greeting: Good night
           name: Oezguer
