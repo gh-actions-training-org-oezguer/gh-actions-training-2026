@@ -7,7 +7,7 @@ jobs:
   Demo_calling_composite:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkou@v4
+      - uses: action/checkout@v4
 
       - name: Call composite action
         id: step1
