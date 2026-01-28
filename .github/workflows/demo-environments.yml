@@ -37,5 +37,5 @@ jobs:
         run: echo Feature is not being deployed
         if: ${{vars.FEATURE_FLAG == 'false'}}
       - name: Show DB psw
-        run: echo ${{secrets.DB_PSW}}
+        run: echo ${{secrets.DB_PASSWORD}}
         
