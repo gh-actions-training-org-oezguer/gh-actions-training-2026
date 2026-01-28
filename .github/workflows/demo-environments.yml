@@ -30,12 +30,12 @@ jobs:
       name: ${{inputs.environment}}
       url: ${{vars.APP_URL}}
     steps:
-      - name: Deployin feature
+      - name: Deploying feature
         run: echo Feature is being deployed
         if: ${{vars.FEATURE_FLAG == 'true'}}
       - name: Show message
         run: echo Feature is not being deployed
         if: ${{vars.FEATURE_FLAG == 'false'}}
       - name: Show DB psw
-        run: echo ${{secrets.DB_PASSWORD}}
+        run: echo ${{secrets.DB_PSW}}
         
