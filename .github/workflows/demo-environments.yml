@@ -26,6 +26,9 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     needs: [build, test]
+    environment:
+      name: ${{inputs.environment}}
+      url: ${{vars.APP_URL}}
     steps:
       - name: Deployin feature
         run: echo Feature is being deployed
