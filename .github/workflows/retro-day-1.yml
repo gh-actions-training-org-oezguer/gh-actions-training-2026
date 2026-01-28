@@ -1,0 +1,42 @@
+# create a workflow with a name of your choice
+name: first workflow
+
+# it should be triggered whenever there is a push on the main branch
+on:
+  push: 
+    branches:
+      - main
+  workflow_dispatch: 
+# it should be triggered manually too
+
+# define 2 environment variables:  VAR1 an VAR2
+# VAR1 is boolean
+# VAR2 is string
+env:
+  VAR1: true
+  VAR2: test
+
+# it should have 2 jobs
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Jobs1"
+        run: echo ${{env.VAR2}}
+        if: ${{env.VAR1}}
+# 1st job should contains 2 steps
+# step 1:
+# - should be executed only if VAR1 is true
+# - echo the VAR2
+# - echo your name
+
+# 2nd job should be executed only if job1 is executed successfully
+# job2 has only 1 step - you can do here anything you want, e.g. echo "good morning"
+# Commit the file and run the workflow, check everything works
+
+  job2:
+      runs-on: ubuntu-latest
+      needs: job1
+      steps:
+        - name: "Jobs2"
+          run: echo "2nd job"
