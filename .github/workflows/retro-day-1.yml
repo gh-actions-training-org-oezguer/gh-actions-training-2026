@@ -10,6 +10,7 @@ on:
     inputs:
       myVar1:
         type: boolean
+        default: false
         description: Please check
       myVar2:
         type: string
